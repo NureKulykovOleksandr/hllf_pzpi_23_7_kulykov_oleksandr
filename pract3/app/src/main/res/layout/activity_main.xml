@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Завдання 1: Обчислення частки (a/b)"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp"/>
+
+        <EditText
+            android:id="@+id/etNumA"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Введіть число a"
+            android:inputType="numberDecimal"
+            android:layout_marginBottom="8dp"/>
+
+        <EditText
+            android:id="@+id/etNumB"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Введіть число b"
+            android:inputType="numberDecimal"
+            android:layout_marginBottom="8dp"/>
+
+        <Button
+            android:id="@+id/btnDivide"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Розрахувати частку"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView
+            android:id="@+id/tvDivisionResult"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Результат: "
+            android:textSize="16sp"
+            android:layout_marginBottom="24dp"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="#CCCCCC"
+            android:layout_marginBottom="24dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Завдання 2: Гра в кістки (2 кубики)"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp"/>
+
+        <Button
+            android:id="@+id/btnRollDice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Кинути кубики 🎲"
+            android:layout_marginBottom="16dp"/>
+
+        <TextView
+            android:id="@+id/tvPlayer1Score"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Гравець 1: кубики не кинуто"
+            android:textSize="16sp"
+            android:layout_marginBottom="4dp"/>
+
+        <TextView
+            android:id="@+id/tvPlayer2Score"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Гравець 2: кубики не кинуто"
+            android:textSize="16sp"
+            android:layout_marginBottom="12dp"/>
+
+        <TextView
+            android:id="@+id/tvGameWinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Переможець: -"
+            android:textSize="18sp"
+            android:textColor="#007BF0"
+            android:textStyle="bold"/>
+
+    </LinearLayout>
+</ScrollView>
