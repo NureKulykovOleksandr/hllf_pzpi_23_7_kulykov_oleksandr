@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Рівень 2 - Парсер JSON</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        textarea { width: 100%; height: 100px; margin-bottom: 10px; font-family: monospace; }
+        button { padding: 10px 15px; cursor: pointer; }
+        pre { background: #f4f4f4; padding: 15px; border-radius: 5px; border: 1px solid #ccc; overflow-x: auto; }
+        .error { color: red; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <h2>Завдання 2: Парсер JSON</h2>
+    <p>Вставте JSON-рядок у поле нижче (наприклад: <code>{"name":"John", "age":30, "skills":["JS", "Python"]}</code>):</p>
+    
+    <textarea id="jsonInput">{"назва": "Практична 2", "оцінка": 100, "теми": ["json", "fetch", "react"]}</textarea>
+    <br>
+    <button id="parseButton">Розпарсити JSON</button>
+
+    <h3>Результат (деревоподібна структура):</h3>
+    <pre id="output"></pre>
+
+    <script>
+        const parseButton = document.getElementById('parseButton');
+        const jsonInput = document.getElementById('jsonInput');
+        const output = document.getElementById('output');
+
+        parseButton.addEventListener('click', () => {
+            const rawData = jsonInput.value;
+            
+            try {
+                const parsedObject = JSON.parse(rawData);
+                
+                output.className = "";
+                output.textContent = JSON.stringify(parsedObject, null, 4);
+            } catch (error) {
+                output.className = "error";
+                output.textContent = "Помилка парсингу! Перевірте правильність введеного JSON.\nДеталі: " + error.message;
+            }
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Рівень 1 - Зміна кольору</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        button { padding: 10px 20px; font-size: 16px; cursor: pointer; }
+    </style>
+</head>
+<body>
+
+    <h2>Завдання 1: Зміна кольору тексту через fetch()</h2>
+    <button id="colorButton">Натисни, щоб змінити мій колір!</button>
+
+    <script>
+        const button = document.getElementById('colorButton');
+
+        button.addEventListener('click', () => {
+            fetch('color.json')
+                .then(response => response.text())
+                .then(textData => {
+                    const parsedData = JSON.parse(textData);
+                    
+                    button.style.color = parsedData.color;
+                    console.log("Колір успішно змінено на:", parsedData.color);
+                })
+                .catch(error => console.error("Помилка завантаження:", error));
+        });
+    </script>
+
+</body>
+</html>
