@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Транзакції за категоріями</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; max-width: 800px; margin: auto; }
+        .category-block { background: #f9f9f9; padding: 15px; border-radius: 8px; margin-bottom: 20px; border-left: 5px solid #007bff; }
+        .transaction-item { padding: 5px 0; border-bottom: 1px dashed #ccc; }
+        .debit { color: green; font-weight: bold; }
+        .credit { color: red; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h1>Управління фінансами</h1>
+
+    {% for category in categories %}
+        <div class="category-block">
+            <h2>Категорія: {{ category.name }}</h2>
+            <ul>
+                {% for transaction in category.transaction_set.all %}
+                    <li class="transaction-item">
+                        {{ transaction.description }} — 
+                        <strong>{{ transaction.amount }} ₴</strong> 
+                        <span class="{% if transaction.transaction_type == 'debit' %}debit{% else %}credit{% endif %}">
+                            ({{ transaction.get_transaction_type_display }})
+                        </span>
+                    </li>
+                {% empty %}
+                    <li>Транзакцій у цій категорії поки немає.</li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% empty %}
+        <p>Категорій ще не створено. Додайте їх через адмін-панель.</p>
+    {% endfor %}
+
+</body>
+</html>
